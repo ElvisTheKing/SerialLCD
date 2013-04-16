@@ -29,16 +29,6 @@
 #ifndef SERIAL_LCD_H
 #define SERIAL_LCD_H
 
-#include <inttypes.h>
-
-#if ARDUINO < 100
-#include <WProgram.h>
-#include <NewSoftSerial.h>
-#else
-#include <Arduino.h>
-#include <SoftwareSerial.h>
-#endif
-
 //Initialization Commands or Responses
 #define UART_READY		0xA3
 #define SLCD_INIT_ACK		0xA5
@@ -71,19 +61,18 @@
 #define SLCD_POWER_ON    	0x83
 #define SLCD_POWER_OFF  	0x82
 
+#include <Arduino.h>
 
-#if ARDUINO < 100
-class SerialLCD : public NewSoftSerial{
-#else
-class SerialLCD : public SoftwareSerial{
-#endif
-public:
+class SerialLCD {
+    HardwareSerial *stream;
+  
+  public:
 
-    SerialLCD(uint8_t, uint8_t);
+    SerialLCD();
     
     void autoscroll();
     void backlight();    
-    void begin();
+    void begin(HardwareSerial*);
     void blink();
     void clear();
     void cursor();
