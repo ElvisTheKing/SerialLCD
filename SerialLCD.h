@@ -8,6 +8,9 @@
   Modified by Peter Gamache (KC0TFB) to support Arduino IDE 1.0 and unify
   support for all firmware (Grove SLCD firmware 0.9b, 1.0b, 1.1b)
 
+  Modified by Sergey Konyukhovskiy to support HardwareSerial and other Stream
+  classes using stream dependency injection
+
   Note that not all firmware supports all features.  Power and Backlight
   commands may be ignored by earlier firmware.
 
