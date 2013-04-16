@@ -64,7 +64,7 @@
 #include <Arduino.h>
 
 class SerialLCD {
-    HardwareSerial *stream;
+    Stream *stream;
   
   public:
 
@@ -72,7 +72,7 @@ class SerialLCD {
     
     void autoscroll();
     void backlight();    
-    void begin(HardwareSerial*);
+    void begin(Stream*);
     void blink();
     void clear();
     void cursor();

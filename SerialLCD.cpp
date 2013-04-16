@@ -34,7 +34,7 @@ SerialLCD::SerialLCD()
 }
 
 
-void SerialLCD::begin(HardwareSerial *s)
+void SerialLCD::begin(Stream *s)
 {
     stream = s;
     delay(2);
